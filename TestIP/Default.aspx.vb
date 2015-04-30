@@ -22,8 +22,10 @@ Public Class _Default
         End If
 
         Dim req As HttpWebRequest = CType(WebRequest.Create(IPNModeURL), HttpWebRequest)
-        Dim CodePage As Integer = 1252 'ANSI windows-1252 por Default
+        Dim CodePage As Integer = 20127  'ASCII
+        '1252 'ANSI windows-1252 por Default
         '65001:  'UTF-8 
+        '20127  'ASCII
         Dim charset = Request.Form("charset")
         For Each ei As EncodingInfo In Encoding.GetEncodings()
             If ei.Name = charset Then
