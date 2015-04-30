@@ -53,6 +53,18 @@ Public Class _Default
 
         'Send the request to PayPal and get the response
 
+
+        Dim Item_name As String = Request.Form("item_name")
+        Dim Item_number As String = Request.Form("item_number")
+        Dim Payment_status As String = Request.Form("payment_status")
+        Dim Payment_amount As String = Request.Form("mc_gross")
+        Dim Payment_currency As String = Request.Form("mc_currency")
+        Dim Txn_id As String = Request.Form("txn_id")
+        Dim Receiver_email As String = Request.Form("receiver_email")
+        Dim Payer_email As String = Request.Form("payer_email")
+        Dim Txn_type As String = Request.Form("Txn_type")
+
+
         ' Write the request back IPN strings
         Dim stOut As New StreamWriter(req.GetRequestStream(), System.Text.Encoding.Default)
         stOut.Write(strRequest)
@@ -63,16 +75,7 @@ Public Class _Default
         Dim strResponse = stIn.ReadToEnd()
         stIn.Close()
 
-        
-        Dim Item_name As String = Request.Form("item_name")
-        Dim Item_number As String = Request.Form("item_number")
-        Dim Payment_status As String = Request.Form("payment_status")
-        Dim Payment_amount As String = Request.Form("mc_gross")
-        Dim Payment_currency As String = Request.Form("mc_currency")
-        Dim Txn_id As String = Request.Form("txn_id")
-        Dim Receiver_email As String = Request.Form("receiver_email")
-        Dim Payer_email As String = Request.Form("payer_email")
-        Dim Txn_type As String = Request.Form("Txn_type")
+
 
         Dim _reintentar As Boolean = False
 
