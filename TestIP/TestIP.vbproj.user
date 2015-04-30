@@ -7,9 +7,8 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <StartPageUrl>
-          </StartPageUrl>
-          <StartAction>CurrentPage</StartAction>
+          <StartPageUrl>Default.aspx?payment_type=echeck&amp;payment_date=Thu%20Apr%2030%202015%2013%3A55%3A15%20GMT-0500%20%28Central%20Daylight%20Time%20%28Mexico%29%29&amp;payment_status=Completed&amp;address_status=confirmed&amp;payer_status=verified&amp;first_name=John&amp;last_name=Smith&amp;payer_email=buyer%40paypalsandbox.com&amp;payer_id=TESTBUYERID01&amp;address_name=John%20Smith&amp;address_country=United%20States&amp;address_country_code=US&amp;address_zip=95131&amp;address_state=CA&amp;address_city=San%20Jose&amp;address_street=123%20any%20street&amp;business=seller%40paypalsandbox.com&amp;receiver_email=seller%40paypalsandbox.com&amp;receiver_id=seller%40paypalsandbox.com&amp;residence_country=US&amp;item_name=something&amp;item_number=AK-1234&amp;quantity=1&amp;shipping=3.04&amp;tax=2.02&amp;mc_currency=USD&amp;mc_fee=0.44&amp;mc_gross=12.34&amp;mc_gross1=12.34&amp;txn_type=web_accept&amp;txn_id=171072420¬ify_version=2.1&amp;custom=xyz123&amp;invoice=abc1234&amp;test_ipn=1&amp;verify_sign=AmZqHiop8S8jv7o9LsGb4mlLvZJ8AGNmcjhmGA5hZZQqInm08SWe5dkC</StartPageUrl>
+          <StartAction>SpecificPage</StartAction>
           <AspNetDebugging>True</AspNetDebugging>
           <SilverlightDebugging>False</SilverlightDebugging>
           <NativeDebugging>False</NativeDebugging>
