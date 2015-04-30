@@ -22,25 +22,25 @@ Public Class _Default
         End If
 
         Dim req As HttpWebRequest = CType(WebRequest.Create(IPNModeURL), HttpWebRequest)
-        Dim CodePage As Integer = 20127  'ASCII
-        '1252 'ANSI windows-1252 por Default
-        '65001:  'UTF-8 
-        '20127  'ASCII
-        Dim charset = Request.Form("charset")
-        For Each ei As EncodingInfo In Encoding.GetEncodings()
-            If ei.Name = charset Then
-                CodePage = ei.CodePage 'Se asigna el Encoding del campo charset
-                Exit For
-            End If
-        Next
+        'Dim CodePage As Integer = 20127  'ASCII
+        ''1252 'ANSI windows-1252 por Default
+        ''65001:  'UTF-8 
+        ''20127  'ASCII
+        'Dim charset = Request.Form("charset")
+        'For Each ei As EncodingInfo In Encoding.GetEncodings()
+        '    If ei.Name = charset Then
+        '        CodePage = ei.CodePage 'Se asigna el Encoding del campo charset
+        '        Exit For
+        '    End If
+        'Next
 
-        'Set values for the request back
+       'Set values for the request back
         req.Method = "POST"
         req.ContentType = "application/x-www-form-urlencoded"
         Dim Param() As Byte = Request.BinaryRead(HttpContext.Current.Request.ContentLength)
-        Dim strPayPal As String = Encoding.GetEncoding(CodePage).GetString(Param)
+        Dim strPayPal As String = System.Text.Encoding.ASCII.GetString(Param)
         Dim strRequest As String = "cmd=_notify-validate" & strPayPal
-        'req.ContentLength = strRequest.Length
+        req.ContentLength = strRequest.Length
 
         Try
             My.Computer.FileSystem.WriteAllText(Server.MapPath("~/App_Data/Files") & "archivo.txt", Date.Now.ToString & " - " & strPayPal & vbCrLf, True)
@@ -52,14 +52,18 @@ Public Class _Default
         'req.Proxy = proxy
 
         'Send the request to PayPal and get the response
-        Dim streamOut As StreamWriter = New StreamWriter(req.GetRequestStream(), Encoding.GetEncoding(CodePage))
-        streamOut.Write(strRequest)
-        streamOut.Flush()
-        streamOut.Close()
-        Dim streamIn As StreamReader = New StreamReader(req.GetResponse().GetResponseStream())
-        Dim strResponse As String = streamIn.ReadToEnd()
-        streamIn.Close()
 
+        ' Write the request back IPN strings
+        Dim stOut As New StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII)
+        stOut.Write(strRequest)
+        stOut.Close()
+
+        ' Do the request to PayPal and get the response
+        Dim stIn As New StreamReader(req.GetResponse().GetResponseStream())
+        Dim strResponse = stIn.ReadToEnd()
+        stIn.Close()
+
+        
         Dim Item_name As String = Request.Form("item_name")
         Dim Item_number As String = Request.Form("item_number")
         Dim Payment_status As String = Request.Form("payment_status")
