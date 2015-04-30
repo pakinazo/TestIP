@@ -40,7 +40,7 @@ Public Class _Default
         'req.ContentLength = strRequest.Length
 
         Try
-            My.Computer.FileSystem.WriteAllText(Server.MapPath("~/App_Data/uploads/random") & "archivo.txt", Date.Now.ToString & " - " & strPayPal & vbCrLf, True)
+            My.Computer.FileSystem.WriteAllText(Server.MapPath("~/App_Data/Files") & "archivo.txt", Date.Now.ToString & " - " & strPayPal & vbCrLf, True)
         Catch ex As Exception
 
         End Try
@@ -87,7 +87,7 @@ Public Class _Default
         End If
 
         Try
-            My.Computer.FileSystem.WriteAllText(Server.MapPath("~/App_Data/uploads/random") & "archivo.txt", Date.Now.ToString & " - Txn_id: " & Txn_id & ", Txn_type: " & Txn_type & ", RESPONSE: " & strResponse & ", PAYMENT STATUS: " & Payment_status & vbCrLf, True)
+            My.Computer.FileSystem.WriteAllText(Server.MapPath("~/App_Data/Files") & "archivo.txt", Date.Now.ToString & " - Txn_id: " & Txn_id & ", Txn_type: " & Txn_type & ", RESPONSE: " & strResponse & ", PAYMENT STATUS: " & Payment_status & vbCrLf, True)
         Catch ex As Exception
 
         End Try
