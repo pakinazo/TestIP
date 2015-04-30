@@ -38,7 +38,7 @@ Public Class _Default
         req.Method = "POST"
         req.ContentType = "application/x-www-form-urlencoded"
         Dim Param() As Byte = Request.BinaryRead(HttpContext.Current.Request.ContentLength)
-        Dim strPayPal As String = System.Text.Encoding.ASCII.GetString(Param)
+        Dim strPayPal As String = System.Text.Encoding.UTF8.GetString(Param)
         Dim strRequest As String = "cmd=_notify-validate" & strPayPal
         req.ContentLength = strRequest.Length
 
@@ -54,7 +54,7 @@ Public Class _Default
         'Send the request to PayPal and get the response
 
         ' Write the request back IPN strings
-        Dim stOut As New StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII)
+        Dim stOut As New StreamWriter(req.GetRequestStream(), System.Text.Encoding.UTF8)
         stOut.Write(strRequest)
         stOut.Close()
 
