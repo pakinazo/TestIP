@@ -42,7 +42,7 @@ Public Class _Default
 
         Dim strPayPal As String = New StreamReader(Context.Request.InputStream).ReadToEnd()
 
-        Dim strRequest As String = "cmd=_notify-validate" & strPayPal
+        Dim strRequest As String = strPayPal & "&cmd=_notify-validate"
         req.ContentLength = strRequest.Length
 
         Try
