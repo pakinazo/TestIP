@@ -37,8 +37,11 @@ Public Class _Default
        'Set values for the request back
         req.Method = "POST"
         req.ContentType = "application/x-www-form-urlencoded"
-        Dim Param() As Byte = Request.BinaryRead(HttpContext.Current.Request.ContentLength)
-        Dim strPayPal As String = System.Text.Encoding.Default.GetString(Param)
+        'Dim Param() As Byte = Request.BinaryRead(HttpContext.Current.Request.ContentLength)
+        'Dim strPayPal As String = System.Text.Encoding.Default.GetString(Param)
+
+        Dim strPayPal As String = New StreamReader(Context.Request.InputStream).ReadToEnd()
+
         Dim strRequest As String = "cmd=_notify-validate" & strPayPal
         req.ContentLength = strRequest.Length
 
@@ -66,7 +69,7 @@ Public Class _Default
 
 
         ' Write the request back IPN strings
-        Dim stOut As New StreamWriter(req.GetRequestStream(), System.Text.Encoding.Default)
+        Dim stOut As New StreamWriter(req.GetRequestStream())
         stOut.Write(strRequest)
         stOut.Close()
 
