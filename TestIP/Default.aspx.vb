@@ -22,7 +22,7 @@ Public Class _Default
         End If
 
         Dim req As HttpWebRequest = CType(WebRequest.Create(IPNModeURL), HttpWebRequest)
-        Dim CodePage As Integer = 20127
+        Dim CodePage As Integer = 65001
         '1252 'ANSI windows-1252 por Default
         ''65001:  'UTF-8 
         ''20127  'ASCII
