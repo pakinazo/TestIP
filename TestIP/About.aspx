@@ -3,7 +3,7 @@
 <html lang="es">
   <head>
 <meta property="og:image"
-content="http://ipn-1.apphb.com/Images/Side.jpg" />
+content="http://ipn-1.apphb.com/Images/Side.png" />
 <meta property="og:description"
 content="Esta es una página para compartir" />
 <meta property="og:url"
