@@ -40,7 +40,7 @@ Public Class _Default
         Dim Param() As Byte = Request.BinaryRead(HttpContext.Current.Request.ContentLength)
         Dim strPayPal As String = Encoding.GetEncoding(CodePage).GetString(Param)
         Dim strRequest As String = strPayPal & "&cmd=_notify-validate"
-        'req.ContentLength = strRequest.Length
+        req.ContentLength = strRequest.Length
 
         Try
             My.Computer.FileSystem.WriteAllText(Server.MapPath("~/App_Data/Files") & "archivo.txt", Date.Now.ToString & " - " & strPayPal & vbCrLf, True)
