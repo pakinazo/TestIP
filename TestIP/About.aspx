@@ -1,34 +1,15 @@
-﻿<%@ Page Title="About" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.vb" Inherits="TestIP.About" %>
-
-<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <hgroup class="title">
-        <h1><%: Title %>.</h1>
-        <h2>Your app description page.</h2>
-    </hgroup>
-
-    <article>
-        <p>        
-            Use this area to provide additional information.
-        </p>
-
-        <p>        
-            Use this area to provide additional information.
-        </p>
-
-        <p>        
-            Use this area to provide additional information.
-        </p>
-    </article>
-
-    <aside>
-        <h3>Aside Title</h3>
-        <p>        
-            Use this area to provide additional information.
-        </p>
-        <ul>
-            <li><a runat="server" href="~/">Home</a></li>
-            <li><a runat="server" href="~/About">About</a></li>
-            <li><a runat="server" href="~/Contact">Contact</a></li>
-        </ul>
-    </aside>
-</asp:Content>
+﻿<%@ Page Title="About" Language="VB" AutoEventWireup="true" CodeBehind="About.aspx.vb" Inherits="TestIP.About" %>
+<!doctype html>
+<html lang="es">
+  <head>
+<meta property="og:image"
+content="http://ipn-1.apphb.com/Images/SHUT.jpg" />
+<meta property="og:description"
+content="Esta es una página para compartir" />
+<meta property="og:url"
+content="http://ipn-1.apphb.com/About.aspx" />
+      </head>
+    <body>
+        <asp:Button ID="BOTON" runat="server" />
+    </body>
+    </html>
