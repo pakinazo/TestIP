@@ -10,7 +10,7 @@ content="Esta es una página para compartir" />
 content="http://ipn-1.apphb.com/About.aspx" />
       </head>
     <body>
-        <form id="asd" runat="server" >
+        <form id="asd" runat="server" >d
             <asp:Button ID="BOTON" runat="server" Text="comparar" />
         </form>
     </body>
